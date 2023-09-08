@@ -3,7 +3,6 @@ import { View, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome, Entypo } from '@expo/vector-icons';
 
-import UserList from '../components/UserList';
 import colors from '../colors';
 const catImageUrl =
   'https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d';
@@ -36,7 +35,15 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <UserList />
+      <View>
+        <Text style={styles.welcomeText}>Welcome</Text>
+      </View>
+      <TouchableOpacity
+        style={styles.chatButton}
+        onPress={() => navigation.navigate('Chat')}
+      >
+        <Entypo name="chat" size={30} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -64,5 +71,12 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     marginRight: 20,
     marginBottom: 50,
+  },
+  welcomeText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: colors.primary,
+    alignSelf: 'center',
+    paddingBottom: 24,
   },
 });
