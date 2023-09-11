@@ -8,34 +8,25 @@
 3. [Chat](#chat)
 4. [Technologies Used](#technologies-used)
 
-## Home
+# Chat App
 
-![Home Icon](home-icon.png)
+📱 Welcome to the Chat App! This mobile application allows you to chat with friends, share images, and send your location.
 
-The home screen serves as the entry point for users. It offers a visually appealing interface with a background image and a prominent "Chat" button. Users can tap the "Chat" button to access the chat rooms.
+## Features
+- Join chat rooms to communicate with friends and family.
+- Send text messages, images, and locations.
+- Read messages offline for convenient access.
+- Screen reader compatibility for users with visual impairments.
 
-## Login
+## Technical Details
+- Built using ![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/5d58ff09-45e9-4dbb-8d3b-e3b458a98b7c)React Native and ![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/9b07c7f3-bfd7-49f1-9f9d-e1d4c014471e) Expo for cross-platform compatibility.
+- Messages are securely stored in Google Firestore Database.
+- User registration and authentication via Google Firebase.
+- Intuitive user interface with styling based on design specifications.
+- Support for image selection from your device's library and camera.
+- Location data is shared with a map view.
 
-![Login Icon](login-icon.png)
+Thank you for using the Chat App! If you have any questions or need assistance, feel free to reach out. Happy chatting! 🚀
 
-The login screen allows users to log in to their accounts using email and password. It provides a secure authentication process and displays appropriate error messages in case of login failures. Users can navigate to the signup screen if they don't have an account.
-
-## Chat
-
-![Chat Icon](chat-icon.png)
-
-The chat screen is the core of the application, providing real-time messaging functionality. Users can send and receive messages, including text, images (with appropriate permissions), and locations. The chat also supports offline capabilities, ensuring messages are sent even when the user is offline.
-
-## Technologies Used
-
-![React Native Icon](react-native-icon.png) ![Firebase Icon](firebase-icon.png)
-
-In the development of this app, the following technologies and libraries were used:
-
-- React Native: For building the cross-platform mobile app.
-- Firebase: For real-time database storage and email authentication.
-- Gifted Chat: A library for creating the chat interface.
-- AsyncStorage: Used for caching messages for offline use.
-- Navigation: For navigating between screens.
 
 Thank you for exploring the React Native Chat App with Firebase! If you have any questions or need assistance, feel free to reach out. Happy coding! 🚀
