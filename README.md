@@ -19,7 +19,7 @@
 - Screen reader compatibility for users with visual impairments.
 
 ## Technical Details
-- Built using ![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/5d58ff09-45e9-4dbb-8d3b-e3b458a98b7c)React Native and ![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/9b07c7f3-bfd7-49f1-9f9d-e1d4c014471e) Expo for cross-platform compatibility.
+- Built using [![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/5d58ff09-45e9-4dbb-8d3b-e3b458a98b7c)](https://icons8.com/icon/p57acgidi9bj/react-native) React Native and ![image](https://github.com/JarJarDinks/ChatApp/assets/104926747/9b07c7f3-bfd7-49f1-9f9d-e1d4c014471e) Expo for cross-platform compatibility.
 - Messages are securely stored in Google Firestore Database.
 - User registration and authentication via Google Firebase.
 - Intuitive user interface with styling based on design specifications.
