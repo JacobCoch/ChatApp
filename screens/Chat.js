@@ -17,9 +17,10 @@ import { signOut } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import { auth, database } from '../config/firebase';
+import CustomActions from '../components/CustomActions';
+import { auth, database, storage } from '../config/firebase';
 import colors from '../colors';
+import MapView from 'react-native-maps';
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -27,6 +28,27 @@ export default function Chat() {
 
   const onSignOut = () => {
     signOut(auth).catch((error) => console.log('Error logging out: ', error));
+  };
+
+  const renderCustomActions = (props) => {
+    return <CustomActions {...props} storage={storage} />;
+  };
+  const renderCustomView = (props) => {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={styles.mapview}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
   };
 
   useLayoutEffect(() => {
@@ -85,14 +107,22 @@ export default function Chat() {
     setMessages((previousMessages) =>
       GiftedChat.append(previousMessages, messages)
     );
-    // setMessages([...messages, ...messages]);
-    const { _id, createdAt, text, user } = messages[0];
-    addDoc(collection(database, 'chats'), {
-      _id,
-      createdAt,
-      text,
-      user,
-    });
+
+    if (messages.length > 0) {
+      const { _id, createdAt, text, user } = messages[0];
+      if (text !== undefined) {
+        addDoc(collection(database, 'chats'), {
+          _id,
+          createdAt,
+          text,
+          user,
+        });
+      } else {
+        console.error('Message text is undefined');
+      }
+    } else {
+      console.error('No messages to send');
+    }
   }, []);
 
   return (
@@ -105,6 +135,8 @@ export default function Chat() {
       messages={messages}
       showAvatarForEveryMessage={false}
       showUserAvatar={false}
+      renderActions={renderCustomActions}
+      renderCustomView={renderCustomView}
       onSend={(messages) => onSend(messages)}
       messagesContainerStyle={{
         backgroundColor: '#fff',
@@ -120,3 +152,13 @@ export default function Chat() {
     />
   );
 }
+
+const styles = {
+  mapview: {
+    width: 150,
+    height: 100,
+    borderRadius: 13,
+    margin: 3,
+    borderRadius: 20,
+  },
+};

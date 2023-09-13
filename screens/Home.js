@@ -53,7 +53,7 @@ export default function Home() {
         <Text style={styles.welcomeText}>Welcome</Text>
       </View>
       <View>
-        <Text style={styles.massChat}>To The Mass Chat Room</Text>
+        <Text style={styles.massChat}>Mass Chat Room</Text>
       </View>
       <TouchableOpacity
         style={styles.chatButton}
@@ -88,10 +88,15 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 60,
   },
   chatButton: {
+    position: 'absolute',
+    bottom: 50,
+    right: 0,
+
     backgroundColor: colors.primary,
     height: 100,
     width: 100,
     borderRadius: 50,
+
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: 'black',
